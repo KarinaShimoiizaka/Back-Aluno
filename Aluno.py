@@ -1,4 +1,5 @@
 import psycopg2
+from psycopg2 import IntegrityError
 import os
 from dotenv import load_dotenv
 from datetime import date
@@ -25,51 +26,55 @@ class Aluno:
         params = (nome, sobrenome, nascimento, media, academia, data_mat)
         try:
             cur.execute(query, params)
-            result = cur.rowcount()
             self.__disconnect(conn)
-            return result
+            return 0
+        except IntegrityError: 
+            self.__disconnect(conn)
+            return 1
         except psycopg2.Error as e:
             self.__disconnect(conn)
             return -1
 
     def select(self, mat: int):
-        conn = self.__connect(self)
+        conn = self.__connect()
         cur = conn.cursor()
         query = "SELECT * FROM aluno WHERE mat = %s"
         params = (mat,)
         try:
             cur.execute(query, params)
             result = cur.fetchall()
-            self.__disconnect(self ,conn)
+            self.__disconnect(conn)
+            if result == []:
+                return 0
             return result
         except psycopg2.Error as e:
-            self.__disconnect(self ,conn)
+            self.__disconnect(conn)
             return -1
 
     def update(self, media: float, mat: int):
-        conn = self.__connect(self)
+        conn = self.__connect()
         cur = conn.cursor()
         query = "UPDATE aluno SET media = %s WHERE mat = %s"
         params = (media, mat)
         try:
             cur.execute(query, params)
             result = cur.rowcount
-            self.__disconnect(self ,conn)
+            self.__disconnect(conn)
             return result
         except psycopg2.Error as e:
-            self.__disconnect(self ,conn)
+            self.__disconnect(conn)
             return -1
 
     def delete(self, mat: int):
-        conn = self.__connect(self)
+        conn = self.__connect()
         cur = conn.cursor()
         query = "DELETE FROM aluno WHERE mat = %s"
         params = (mat,)
         try:
             cur.execute(query, params)
             result = cur.rowcount
-            self.__disconnect(self ,conn)
+            self.__disconnect(conn)
             return result
         except psycopg2.Error as e:
-            self.__disconnect(self ,conn)
+            self.__disconnect(conn)
             return -1

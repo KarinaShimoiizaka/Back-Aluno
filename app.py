@@ -7,7 +7,7 @@ app = FastAPI()
 
 aluno = Aluno()
 
-@app.post("/aluno/insert")
+@app.post("/insert")
 def aluno_insert(
     nome: str, 
     sobrenome : str, 
@@ -20,14 +20,14 @@ def aluno_insert(
     print(result)
     return result
 
-@app.get("/aluno/select")
+@app.get("/select")
 def aluno_select(
     mat: int
     ):
     result = aluno.select(mat)
     return result
 
-@app.update("/aluno/update")
+@app.put("/update")
 def aluno_update(
     mat : int,
     media: Annotated[float, Query(ge=0, le=10)],    
@@ -35,7 +35,7 @@ def aluno_update(
     result = aluno.update(media,mat)
     return result
 
-@app.delete("/aluno/delete")
+@app.delete("/delete")
 def aluno_delete(
     mat: int
     ):
