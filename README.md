@@ -2,9 +2,17 @@
 
 ## Introdução
 
+O projeto **Back Aluno** é uma API que implementa um CRUD (Create, Read, Update, Delete) básico para gerenciar informações de alunos. Ele permite realizar operações como inserir, deletar, atualizar e buscar registros de forma eficiente, proporcionando um ambiente ideal para o desenvolvimento de habilidades em manipulação de banco de dados e construção de APIs RESTful.
 
+O sistema gerencia dados essenciais sobre os alunos, incluindo:
+- **Matrícula (ID)**: Identificador único do aluno.
+- **Nome** e **Sobrenome**: Informações pessoais para identificação.
+- **Data de Nascimento**: Para cálculo de idade e validações.
+- **Média do Aluno**: Indicador de desempenho acadêmico.
+- **Academia**: Associação à instituição de ensino.
+- **Data de Matrícula**: Registro da data de entrada na academia.
 
----
+Esse projeto não só auxilia no aprendizado sobre a estrutura de um CRUD, como também prepara o usuário para lidar com desafios reais de desenvolvimento backend, utilizando tecnologias modernas como **FastAPI** e **PostgreSQL**.
 
 ## Índice
 
