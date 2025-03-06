@@ -38,10 +38,68 @@ O projeto foi realizado utilizando as seguintes tecnologias e linguagens:
 - **Python**: Linguagem de programação principal do projeto.
 - **FastAPI**: Framework para construção de APIs.
 - **PostgreSQL**: Banco de dados relacional.
-
-
+- 
 
 ## Requisitos e Dependências
+
+Para executar este projeto de CRUD utilizando FastAPI e PostgreSQL, os seguintes requisitos e dependências devem ser atendidos:
+
+### Requisitos Mínimos
+
+1. **Sistema Operacional**:
+   - Windows 10 ou superior
+   - macOS Monterey ou superior
+   - Distribuições Linux compatíveis com Docker
+
+2. **Software Necessário**:
+   - [Python 3.10+](https://www.python.org/downloads/)
+   - [Docker](https://www.docker.com/get-started)
+   - [Docker Compose](https://docs.docker.com/compose/install/)
+   - [PgAdmin 4](https://www.pgadmin.org/download/)
+
+### Dependências do Projeto
+
+O projeto utiliza as seguintes bibliotecas e frameworks, que devem ser instalados no ambiente virtual do Python:
+
+```bash
+pip install -r requirements.txt
+```
+
+O arquivo `requirements.txt` contém:
+
+```
+fastapi==0.95.1
+uvicorn==0.21.1
+psycopg2==2.9.6
+dotenv==0.21.1
+```
+
+### Configuração do Banco de Dados
+
+O banco de dados PostgreSQL é gerenciado através de um container no Docker. Para garantir sua configuração adequada:
+
+1. Certifique-se de que o Docker está instalado e em execução.
+2. No diretório do projeto, crie um arquivo `.env` contendo a string de conexão com o banco de dados:
+   ```
+   DATABASE_URL=postgresql://usuario:senha@localhost:5432/dbGerminare
+   ```
+3. Execute o seguinte comando para subir o container:
+   ```bash
+   docker-compose up -d
+   ```
+4. Acesse o PgAdmin e conecte-se ao banco de dados `dbGerminare`.
+5. Certifique-se de que a tabela `aluno` está criada com as seguintes colunas:
+   ```sql
+   CREATE TABLE aluno (
+       mat SERIAL PRIMARY KEY,
+       nome VARCHAR(50) NOT NULL,
+       sobrenome VARCHAR(50) NOT NULL,
+       nascimento DATE NOT NULL,
+       media FLOAT CHECK (media BETWEEN 0 AND 10),
+       academia INT NOT NULL,
+       data_mat DATE NOT NULL
+   );
+   ```
 
 
 
