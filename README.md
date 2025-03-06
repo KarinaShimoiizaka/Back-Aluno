@@ -42,7 +42,6 @@ O projeto foi realizado utilizando as seguintes tecnologias e linguagens:
 - **Python**: Linguagem de programação principal do projeto.
 - **FastAPI**: Framework para construção de APIs.
 - **PostgreSQL**: Banco de dados relacional.
-- 
 
 ## Requisitos e Dependências
 
