@@ -24,12 +24,16 @@ Esse projeto não só auxilia no aprendizado sobre a estrutura de um CRUD, como 
 - [Exemplo de Uso](#exemplo-de-uso)
 - [Contribuidores](#contribuidores)
 
-
 ---
 
 ## Funcionalidades
 
+O **Back Aluno** oferece um CRUD completo para gerenciamento de alunos:
 
+- **Criar Aluno**: Insere um novo aluno no banco de dados.
+- **Consultar Aluno**: Busca informações de um aluno por matrícula.
+- **Atualizar Aluno**: Modifica a média de um aluno existente.
+- **Deletar Aluno**: Remove um aluno do banco de dados.
 
 ## Tecnologias
 
